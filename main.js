@@ -7,10 +7,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('#cv-form');
   const confirmation = document.querySelector('.form__confirmation');
   const currentYear = document.querySelector('#current-year');
+  const cookieBanner = document.querySelector('.cookie-banner');
+  const cookieAccept = document.querySelector('#cookie-accept');
+  const COOKIE_STORAGE_KEY = 'alditraexCookiesAccepted';
 
   if (currentYear) {
     currentYear.textContent = new Date().getFullYear();
   }
+
+  const showCookieBanner = () => {
+    if (cookieBanner) {
+      requestAnimationFrame(() => cookieBanner.classList.add('is-visible'));
+    }
+  };
+
+  const hideCookieBanner = () => {
+    cookieBanner?.classList.remove('is-visible');
+  };
+
+  if (!localStorage.getItem(COOKIE_STORAGE_KEY)) {
+    showCookieBanner();
+  }
+
+  cookieAccept?.addEventListener('click', () => {
+    localStorage.setItem(COOKIE_STORAGE_KEY, 'true');
+    hideCookieBanner();
+  });
 
   const handleScroll = () => {
     if (window.scrollY > 60) {
