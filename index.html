@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alditraex | Agencia de Transportes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <a href="#hero" class="logo">
+          <img src="logo.png" alt="Logotipo de Alditraex" />
+          <span></span>
+        </a>
+        <nav class="main-nav">
+          <button class="nav-toggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul>
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#empresa">Empresa</a></li>
+            <li><a href="#partners">Partners</a></li>
+            <li><a href="#talento">Únete</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li>
+              <a class="nav__cta" href="https://alditraexweb.nereid.es/" target="_blank" rel="noopener">
+                Acceso clientes
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <div class="hero__media">
+          <img src="nave.jpg" alt="Flota de vehículos de transporte" />
+        </div>
+        <div class="hero__overlay"></div>
+        <div class="container hero__content">
+          <h1 data-animate>
+            Alditraex mueve tu carga con precisión, confianza y visibilidad.
+          </h1>
+          <p data-animate data-delay="100">
+            Especialistas en transporte nocturno, regional, nacional e
+            internacional, con cobertura ADR para mercancías peligrosas.
+          </p>
+          <div class="hero__actions" data-animate data-delay="200">
+            <a class="btn btn--primary" href="#contacto">Solicitar presupuesto</a>
+            <a class="btn btn--outline" href="#servicios">Ver servicios</a>
+            <a
+              class="btn btn--outline btn--ghost"
+              href="https://alditraexweb.nereid.es/"
+              target="_blank"
+              rel="noopener"
+            >
+              Acceso clientes
+            </a>
+          </div>
+          <dl class="hero__metrics" data-animate data-delay="300">
+            <div>
+              <dt>99%</dt>
+              <dd>Entregas a tiempo</dd>
+            </div>
+            <div>
+              <dt>+12M</dt>
+              <dd>Km recorridos al año</dd>
+            </div>
+            <div>
+              <dt>40</dt>
+              <dd>Rutas activas diarias</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="hero__tagline" data-animate data-delay="400">
+          <span class="hero__tagline-pill">Alditraex</span>
+          <strong>Logística 24/7</strong>
+        </div>
+      </section>
+
+      <section id="servicios" class="section services">
+        <div class="container">
+          <header class="section__head">
+            <span class="section__eyebrow" data-animate>Servicios</span>
+            <h2 data-animate data-delay="100">
+              Soluciones de transporte adaptadas a cada necesidad
+            </h2>
+            <p data-animate data-delay="200">
+              Gestionamos la cadena logística completa con sistemas de tracking
+              en tiempo real, equipos especializados y procesos certificados.
+            </p>
+          </header>
+          <div class="services__grid">
+            <article class="service-card" data-animate>
+              <span class="service-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path
+                    d="M21 12.79A9 9 0 0111.21 3 7 7 0 0020 12.79z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M4 12a8 8 0 006.53 7.87 9 9 0 01-6.4-13.63A7 7 0 004 12z"
+                    fill="currentColor"
+                    opacity="0.7"
+                  />
+                </svg>
+              </span>
+              <h3>Nocturno</h3>
+              <p>
+                Cobertura urgente durante la madrugada para garantizar la
+                reposición al amanecer en centros logísticos y retailers.
+              </p>
+            </article>
+            <article class="service-card" data-animate data-delay="50">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path
+                    d="M12 2a7 7 0 00-7 7c0 4.67 6.23 12.25 6.5 12.55a.64.64 0 00.95 0C12.77 21.25 19 13.67 19 9a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1114.5 9 2.5 2.5 0 0112 11.5z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <h3>Regional</h3>
+              <p>
+                Entregas sincronizadas en Extremadura y zonas limítrofes con
+                microhub urbanos y distribución capilar.
+              </p>
+            </article>
+            <article class="service-card" data-animate data-delay="100">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path
+                    d="M5 21a1 1 0 01-1-1v-7h2v6h12v-6h2v7a1 1 0 01-1 1z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M19 4h-5V3a1 1 0 00-1-1h-2a1 1 0 00-1 1v1H5a1 1 0 00-1 1v6a1 1 0 001 1h14a1 1 0 001-1V5a1 1 0 00-1-1z"
+                    fill="currentColor"
+                    opacity="0.85"
+                  />
+                </svg>
+              </span>
+              <h3>Nacional</h3>
+              <p>
+                Flota propia y red colaboradora para cubrir la península con
+                cumplimiento preciso de ventanas horarias.
+              </p>
+            </article>
+            <article class="service-card" data-animate data-delay="150">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path
+                    d="M12 2a9.93 9.93 0 00-2 .22V4h4V2.22A9.93 9.93 0 0012 2zm7.78 4.45L18 7.4V9h1.78a9.89 9.89 0 000-2.55zM4.22 6.45A9.89 9.89 0 004 9h2V7.4zM13 11h4v2h-4zm-6 0h4v2H7zm8 4h2.5a8 8 0 01-1.1 1.92L15 17.05zm-6 0v2.05l-1.4.87A8 8 0 016.5 15zM11 4V2.22a10 10 0 00-4 1.51V4zm6 0V3.73A10 10 0 0015 2.5V4zM4 11h2v2H4zm14 0h2v2h-2zm-7 9.93V20h-2v1.93a10 10 0 002 0zM13 20h-2v2a10 10 0 002 0zm6.78-3.45A9.89 9.89 0 0020 15h-2v1.6zM4 15a9.89 9.89 0 00.22 1.55L6 16.6V15z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <h3>Internacional</h3>
+              <p>
+                Operativa europea completa con gestión aduanera, coordinación
+                multimodal y seguimiento proactivo.
+              </p>
+            </article>
+            <article class="service-card service-card--accent" data-animate data-delay="200">
+              <span class="service-card__icon service-card__icon--accent" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path
+                    d="M12.87 3.49l8.26 14.31a1 1 0 01-.86 1.5H3.73a1 1 0 01-.86-1.5l8.26-14.31a1 1 0 011.74 0zM11 15v2h2v-2zm0-6v5h2V9z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <h3>Especial ADR</h3>
+              <p>
+                Transporte certificado para mercancías peligrosas, protocolos de
+                seguridad reforzados y conductores habilitados.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="empresa" class="section company">
+        <div class="container company__grid">
+          <div class="company__about" data-animate>
+            <span class="section__eyebrow">Nuestra historia</span>
+            <h2>
+              Desde Extremadura para el mundo, conectando negocios con pasión
+              por la logística.
+            </h2>
+            <p>
+              Somos Alditraex, una compañía familiar con más de 25 años de experiencia en
+              el sector transporte. Apostamos por la tecnología, la sostenibilidad y el trato cercano para garantizar operaciones eficientes y seguras.
+            </p>
+            <p>
+              Con bases estratégicas en Mérida y Navalmoral de la Mata,
+              coordinamos rutas nacionales e internacionales, optimizando tiempos
+              y reduciendo emisiones gracias a nuestra flota de bajas emisiones.
+            </p>
+          </div>
+          <div class="company__locations" data-animate data-delay="100">
+            <article>
+              <h3>Mérida</h3>
+              <p>
+                Centro operativo principal, oficinas corporativas y nave de
+                cross-docking con 12 muelles.
+              </p>
+              <div class="location-detail">
+                <div class="location-map">
+                  <iframe
+                    title="Mapa de Mérida"
+                    src="https://www.google.com/maps?q=Pol%C3%ADgono+El+Prado+parcela+21+M%C3%A9rida&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+                <ul>
+                  <li>Polígono El Prado, parcela 21</li>
+                  <li>+34 924 000 123</li>
+                  <li>merida@alditraex.com</li>
+                </ul>
+              </div>
+            </article>
+            <article data-delay="150">
+              <h3>Navalmoral</h3>
+              <p>
+                Plataforma logística norte con servicio nocturno y punto de
+                consolidación regional.
+              </p>
+              <div class="location-detail">
+                <div class="location-map">
+                  <iframe
+                    title="Mapa de Navalmoral"
+                    src="https://www.google.com/maps?q=Pol%C3%ADgono+Campo+Ara%C3%B1uelo+nave+4+Navalmoral&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+                <ul>
+                  <li>Polígono Campo Arañuelo, nave 4</li>
+                  <li>+34 927 111 456</li>
+                  <li>navalmoral@alditraex.com</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="partners" class="section partners">
+        <div class="container">
+          <header class="section__head">
+            <span class="section__eyebrow" data-animate>Partners</span>
+            <h2 data-animate data-delay="100">
+              Confían en nosotros para llevar sus operaciones al siguiente nivel
+            </h2>
+          </header>
+          <div class="slider" data-animate data-delay="200">
+            <button class="slider__control slider__control--prev" aria-label="Anterior">
+              ‹
+            </button>
+            <div class="slider__track">
+              <div class="slider__slides">
+                <figure class="slide">
+                  <img src="slider/alditraex.png" alt="Partner Alditraex" />
+                </figure>
+                <figure class="slide">
+                  <img src="slider/bdtrans.png" alt="Partner BD Trans" />
+                </figure>
+                <figure class="slide">
+                  <img src="slider/esser.webp" alt="Partner Esser" />
+                </figure>
+                <figure class="slide">
+                  <img src="slider/logosurpaq.jpg" alt="Partner Logosurpaq" />
+                </figure>
+                <figure class="slide">
+                  <img src="slider/logoxpologistics.jpg" alt="Partner XPO Logistics" />
+                </figure>
+                <figure class="slide">
+                  <img src="slider/ntl.jpg" alt="Partner NTL" />
+                </figure>
+                <figure class="slide">
+                  <img src="slider/simoes.jpg" alt="Partner Simoes" />
+                </figure>
+                <figure class="slide">
+                  <img src="slider/tsb.jpg" alt="Partner TSB" />
+                </figure>
+              </div>
+            </div>
+            <button class="slider__control slider__control--next" aria-label="Siguiente">
+              ›
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="talento" class="section talent">
+        <div class="container talent__grid">
+          <div class="talent__intro" data-animate>
+            <span class="section__eyebrow">Únete al equipo</span>
+            <h2>
+              Buscamos talento que comparta nuestra visión de logística
+              sostenible e innovadora.
+            </h2>
+            <p>
+              Conductores, técnicos de tráfico, especialistas ADR,
+              y perfiles administrativos: crece con nosotros desde
+              Extremadura para todo el mundo.
+            </p>
+            <ul>
+              <li>Plan de carrera personalizado</li>
+              <li>Formación continua y certificaciones ADR</li>
+              <li>Conciliación y beneficios sociales</li>
+            </ul>
+          </div>
+          <form class="talent__form" id="cv-form" data-animate data-delay="100">
+            <h3>Déjanos tu currículum</h3>
+            <div class="form-group">
+              <label for="name">Nombre completo</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Teléfono</label>
+              <input id="phone" name="phone" type="tel" required />
+            </div>
+            <div class="form-group">
+              <label for="position">Área de interés</label>
+              <select id="position" name="position" required>
+                <option value="">Selecciona una opción</option>
+                <option value="conduccion">Conducción</option>
+                <option value="trafico">Gestión de tráfico</option>
+                <option value="administracion">Administración</option>
+                <option value="otros">Otros</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Breve presentación</label>
+              <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <div class="form-group form-group--file">
+              <label for="cv">Currículum (PDF)</label>
+              <input id="cv" name="cv" type="file" accept=".pdf" required />
+            </div>
+            <button type="submit" class="btn btn--primary">Enviar candidatura</button>
+            <p class="form__confirmation" role="status"></p>
+          </form>
+        </div>
+      </section>
+
+      <section id="contacto" class="section contact">
+        <div class="container contact__grid">
+          <div class="contact__info" data-animate>
+            <span class="section__eyebrow">Contacto</span>
+            <h2>Operamos 24/7 para mantener tu negocio en movimiento.</h2>
+            <p>
+              Escríbenos y uno de nuestros especialistas preparará una propuesta
+              personalizada en menos de 24 horas.
+            </p>
+            <ul>
+              <li><strong>Email:</strong> info@alditraex.es</li>
+              <li><strong>Teléfono:</strong> +34 900 112 334</li>
+              <li><strong>Atención 24h:</strong> +34 640 778 990</li>
+            </ul>
+          </div>
+          <div class="contact__cta" data-animate data-delay="100">
+            <h3>Planifica tu próxima ruta con nosotros</h3>
+            <p>
+              Logística integrada, informes de performance y trazabilidad
+              total en cada envío.
+            </p>
+            <a class="btn btn--outline" href="mailto:info@alditraex.es">
+              Escribir ahora
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="current-year"></span> Alditraex. Todos los derechos reservados.</p>
+        <div class="footer__links">
+          <a href="#empresa">Sobre nosotros</a>
+          <a href="#contacto">Contacto</a>
+          <a href="#talento">Carreras</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
+
