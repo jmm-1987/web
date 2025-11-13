@@ -616,6 +616,16 @@ a {
   display: flex;
   gap: 2.5rem;
   transition: transform 0.6s ease;
+  will-change: transform;
+}
+
+@keyframes sliderScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(var(--slide-distance, -50%));
+  }
 }
 
 .slide {
@@ -787,6 +797,43 @@ a {
 
 .footer__links a:hover {
   color: #ff1a29;
+}
+
+.contact__logos {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  margin-top: 2rem;
+}
+
+.contact__logo {
+  object-fit: contain;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  filter: brightness(0.95);
+}
+
+.contact__logo:hover {
+  opacity: 1;
+  filter: brightness(1);
+}
+
+/* Cofinanciación - A4 vertical */
+.contact__logo[alt="Cofinanciación"] {
+  height: 280px;
+  width: auto;
+  max-width: 200px;
+}
+
+/* Kit - Horizontal */
+.contact__logo[alt="Kit"] {
+  height: auto;
+  max-height: 200px;
+  width: auto;
+  max-width: 350px;
 }
 
 .legal-body {

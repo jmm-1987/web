@@ -95,99 +95,64 @@ document.addEventListener('DOMContentLoaded', () => {
   if (sliderTrack) {
     const originalSlides = Array.from(sliderTrack.children);
 
+    // Clonar slides para efecto infinito
     originalSlides.forEach((slide) => {
       const clone = slide.cloneNode(true);
       clone.classList.add('slide--clone');
       sliderTrack.appendChild(clone);
     });
 
-    originalSlides
-      .slice()
-      .reverse()
-      .forEach((slide) => {
-        const clone = slide.cloneNode(true);
-        clone.classList.add('slide--clone');
-        sliderTrack.insertBefore(clone, sliderTrack.firstChild);
-      });
-
-    const totalSlides = originalSlides.length;
-    let index = totalSlides;
     let slideWidth = 0;
     let gap = 0;
+    let totalDistance = 0;
 
     const recalcMetrics = () => {
-      const sampleSlide = sliderTrack.querySelector('.slide');
-      slideWidth = sampleSlide?.offsetWidth || 0;
-      gap = parseInt(window.getComputedStyle(sliderTrack).gap, 10) || 0;
-    };
-
-    const setTransition = (enable) => {
-      sliderTrack.style.transition = enable ? 'transform 0.6s ease' : 'none';
-    };
-
-    const updateSlider = () => {
-      const offset = (slideWidth + gap) * index;
-      sliderTrack.style.transform = `translateX(-${offset}px)`;
-    };
-
-    const jumpToIndex = (targetIndex) => {
-      setTransition(false);
-      index = targetIndex;
-      updateSlider();
-      requestAnimationFrame(() => setTransition(true));
-    };
-
-    const handleLoopEdges = () => {
-      if (index >= totalSlides * 2) {
-        jumpToIndex(totalSlides);
-      } else if (index < totalSlides) {
-        jumpToIndex(totalSlides * 2 - 1);
+      // Usar el primer slide original (antes de clonar) para calcular
+      const firstOriginalSlide = originalSlides[0];
+      if (firstOriginalSlide) {
+        slideWidth = firstOriginalSlide.offsetWidth || 0;
+        gap = parseInt(window.getComputedStyle(sliderTrack).gap, 10) || 0;
+        totalDistance = (slideWidth + gap) * originalSlides.length;
+        
+        // Actualizar la animación con la distancia calculada
+        if (totalDistance > 0) {
+          sliderTrack.style.setProperty('--slide-distance', `-${totalDistance}px`);
+        }
       }
     };
 
-    const nextSlide = () => {
-      setTransition(true);
-      index += 1;
-      updateSlider();
+    // Inicializar animación después de calcular métricas
+    const initAnimation = () => {
+      recalcMetrics();
+      // Esperar un frame para asegurar que las métricas estén calculadas
+      requestAnimationFrame(() => {
+        sliderTrack.style.animation = 'sliderScroll 60s linear infinite';
+      });
     };
 
-    const prevSlide = () => {
-      setTransition(true);
-      index -= 1;
-      updateSlider();
-    };
+    // Pausar animación al pasar el mouse
+    sliderTrack.addEventListener('mouseenter', () => {
+      sliderTrack.style.animationPlayState = 'paused';
+    });
+    sliderTrack.addEventListener('mouseleave', () => {
+      sliderTrack.style.animationPlayState = 'running';
+    });
 
-    let autoSlide = setInterval(nextSlide, 3500);
-
+    // Los botones pueden seguir funcionando pero no son necesarios para la animación continua
     nextBtn?.addEventListener('click', () => {
-      nextSlide();
-      restartAutoSlide();
+      // Opcional: avanzar manualmente si se desea
     });
 
     prevBtn?.addEventListener('click', () => {
-      prevSlide();
-      restartAutoSlide();
+      // Opcional: retroceder manualmente si se desea
     });
 
-    sliderTrack.addEventListener('transitionend', handleLoopEdges);
-
-    const restartAutoSlide = () => {
-      clearInterval(autoSlide);
-      autoSlide = setInterval(nextSlide, 3500);
-    };
-
-    sliderTrack.addEventListener('mouseenter', () => clearInterval(autoSlide));
-    sliderTrack.addEventListener('mouseleave', () => {
-      autoSlide = setInterval(nextSlide, 3500);
-    });
-
-    recalcMetrics();
-    setTransition(false);
-    updateSlider();
-    requestAnimationFrame(() => setTransition(true));
+    // Inicializar
+    initAnimation();
+    
+    // Recalcular en resize
     window.addEventListener('resize', () => {
       recalcMetrics();
-      updateSlider();
     });
   }
 
