@@ -157,14 +157,49 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (form && confirmation) {
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      confirmation.textContent = '¡Gracias! Hemos recibido tu candidatura.';
-      form.reset();
+    const submitButton = form.querySelector('button[type="submit"]');
+    const defaultButtonText = submitButton?.textContent || 'Enviar';
 
-      setTimeout(() => {
-        confirmation.textContent = '';
-      }, 4000);
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      confirmation.textContent = 'Enviando tu candidatura...';
+      confirmation.style.color = '';
+      submitButton?.setAttribute('disabled', 'true');
+      if (submitButton) {
+        submitButton.textContent = 'Enviando...';
+      }
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+        });
+        
+        const data = await response.json();
+
+        if (data.success) {
+          confirmation.textContent = '✓ ' + (data.message || '¡Gracias! Hemos recibido tu candidatura.');
+          confirmation.style.color = 'green';
+          form.reset();
+        } else {
+          confirmation.textContent = '✗ ' + (data.message || 'No hemos podido enviar tu candidatura. Intenta nuevamente.');
+          confirmation.style.color = 'red';
+        }
+      } catch (error) {
+        console.error('Error al enviar el formulario', error);
+        confirmation.textContent = '✗ Ha ocurrido un error inesperado. Vuelve a intentarlo en unos minutos.';
+        confirmation.style.color = 'red';
+      } finally {
+        submitButton?.removeAttribute('disabled');
+        if (submitButton) {
+          submitButton.textContent = defaultButtonText;
+        }
+        setTimeout(() => {
+          confirmation.textContent = '';
+          confirmation.style.color = '';
+        }, 6000);
+      }
     });
   }
 });
