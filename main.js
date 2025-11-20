@@ -176,7 +176,17 @@ document.addEventListener('DOMContentLoaded', () => {
           body: formData,
         });
         
-        const data = await response.json();
+        // Verificar si la respuesta es JSON
+        let data;
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          data = await response.json();
+        } else {
+          // Si no es JSON, intentar leer como texto
+          const text = await response.text();
+          console.error('Respuesta no JSON:', text);
+          throw new Error('El servidor no respondió con JSON válido');
+        }
 
         if (data.success) {
           confirmation.textContent = '✓ ' + (data.message || '¡Gracias! Hemos recibido tu candidatura.');
@@ -188,7 +198,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch (error) {
         console.error('Error al enviar el formulario', error);
-        confirmation.textContent = '✗ Ha ocurrido un error inesperado. Vuelve a intentarlo en unos minutos.';
+        
+        // Mensajes más específicos según el tipo de error
+        let errorMessage = 'Ha ocurrido un error inesperado. Vuelve a intentarlo en unos minutos.';
+        
+        if (error.message.includes('CORS') || error.message.includes('Failed to fetch')) {
+          errorMessage = 'Error de conexión: El servidor no permite solicitudes desde este origen. Contacta con el administrador.';
+        } else if (error.message.includes('404') || error.message.includes('Not Found')) {
+          errorMessage = 'Error: El endpoint no fue encontrado. Verifica la configuración del servidor.';
+        } else if (error.message.includes('JSON')) {
+          errorMessage = 'Error: El servidor respondió con un formato inesperado.';
+        }
+        
+        confirmation.textContent = '✗ ' + errorMessage;
         confirmation.style.color = 'red';
       } finally {
         submitButton?.removeAttribute('disabled');
