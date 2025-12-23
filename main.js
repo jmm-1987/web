@@ -88,11 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(section);
   });
 
-  const sliderTrack = document.querySelector('.slider__slides');
-  const prevBtn = document.querySelector('.slider__control--prev');
-  const nextBtn = document.querySelector('.slider__control--next');
+  const sliderTracks = document.querySelectorAll('.slider__slides');
 
-  if (sliderTrack) {
+  sliderTracks.forEach((sliderTrack) => {
     const originalSlides = Array.from(sliderTrack.children);
 
     // Clonar slides para efecto infinito
@@ -126,7 +124,12 @@ document.addEventListener('DOMContentLoaded', () => {
       recalcMetrics();
       // Esperar un frame para asegurar que las métricas estén calculadas
       requestAnimationFrame(() => {
-        sliderTrack.style.animation = 'sliderScroll 60s linear infinite';
+        // Si es el slider de Navalmoral, usar animación inversa
+        if (sliderTrack.classList.contains('slider__slides--navalmoral')) {
+          sliderTrack.style.animation = 'sliderScroll 40s linear infinite reverse';
+        } else {
+          sliderTrack.style.animation = 'sliderScroll 40s linear infinite';
+        }
       });
     };
 
@@ -138,15 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
       sliderTrack.style.animationPlayState = 'running';
     });
 
-    // Los botones pueden seguir funcionando pero no son necesarios para la animación continua
-    nextBtn?.addEventListener('click', () => {
-      // Opcional: avanzar manualmente si se desea
-    });
-
-    prevBtn?.addEventListener('click', () => {
-      // Opcional: retroceder manualmente si se desea
-    });
-
     // Inicializar
     initAnimation();
     
@@ -154,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
       recalcMetrics();
     });
-  }
+  });
 
   if (form && confirmation) {
     const submitButton = form.querySelector('button[type="submit"]');
