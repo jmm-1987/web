@@ -27,8 +27,9 @@ a {
 }
 
 .container {
-  width: min(1200px, 96%);
+  width: min(1400px, 100%);
   margin: 0 auto;
+  padding: 0;
 }
 
 .site-header {
@@ -281,12 +282,22 @@ a {
   font-size: clamp(2.5rem, 4vw, 3.5rem);
   max-width: 720px;
   font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.hero__title-part {
+  display: inline-block;
   opacity: 0;
   transform: translateX(-100%);
   transition: opacity 1s ease-out, transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.hero h1.is-visible {
+.hero__title-part + .hero__title-part {
+  margin-left: 0.3em;
+}
+
+.hero__title-part.is-visible {
   opacity: 1;
   transform: translateX(0);
 }
@@ -1126,14 +1137,11 @@ a {
 }
 
 .hero h1[data-animate] {
-  opacity: 0;
-  transform: translateX(-100%);
-  transition: opacity 1s ease-out, transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  color: #ffffff;
 }
 
 .hero h1[data-animate].is-visible {
-  opacity: 1;
-  transform: translateX(0);
+  color: #ffffff;
 }
 
 @keyframes zoom {
