@@ -51,7 +51,60 @@ document.addEventListener('DOMContentLoaded', () => {
       navToggle.classList.toggle('is-active');
     });
 
-    navMenu.querySelectorAll('a').forEach((link) => {
+    // Manejar el menú desplegable de Contacto
+    const dropdownItem = navMenu.querySelector('.nav-item--dropdown');
+    const dropdownLink = navMenu.querySelector('.nav-link--dropdown');
+    const submenu = navMenu.querySelector('.nav-submenu');
+    
+    if (dropdownItem && dropdownLink && submenu) {
+      let hoverTimeout;
+      
+      // Prevenir el comportamiento por defecto del enlace
+      dropdownLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        // En móvil, toggle del submenú
+        if (window.innerWidth <= 820) {
+          dropdownItem.classList.toggle('is-open');
+        }
+      });
+
+      // Función para abrir el submenú
+      const openSubmenu = () => {
+        clearTimeout(hoverTimeout);
+        dropdownItem.classList.add('is-open');
+      };
+
+      // Función para cerrar el submenú con delay
+      const closeSubmenu = () => {
+        clearTimeout(hoverTimeout);
+        hoverTimeout = setTimeout(() => {
+          dropdownItem.classList.remove('is-open');
+        }, 250); // Delay para permitir movimiento del cursor
+      };
+
+      // En desktop, manejar hover
+      if (window.innerWidth > 820) {
+        // Abrir cuando el cursor entra en el dropdown o submenu
+        dropdownItem.addEventListener('mouseenter', openSubmenu);
+        submenu.addEventListener('mouseenter', openSubmenu);
+        
+        // Cerrar cuando el cursor sale del dropdown o submenu
+        dropdownItem.addEventListener('mouseleave', closeSubmenu);
+        submenu.addEventListener('mouseleave', closeSubmenu);
+      }
+
+      // Cerrar el submenú cuando se hace click en un enlace del submenú
+      const submenuLinks = dropdownItem.querySelectorAll('.nav-submenu a');
+      submenuLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          dropdownItem.classList.remove('is-open');
+          navMenu.classList.remove('is-open');
+          navToggle.classList.remove('is-active');
+        });
+      });
+    }
+
+    navMenu.querySelectorAll('a:not(.nav-link--dropdown)').forEach((link) => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('is-open');
         navToggle.classList.remove('is-active');
