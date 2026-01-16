@@ -363,7 +363,7 @@ a {
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
   max-width: 720px;
   font-weight: 700;
   color: #ffffff;
@@ -510,7 +510,7 @@ a {
 }
 
 .section h2 {
-  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
 }
 
 .section p {
