@@ -402,7 +402,7 @@ a {
 .hero__metrics {
   display: flex;
   gap: 2rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-start;
 }
 
@@ -1711,6 +1711,7 @@ a {
 @media (max-width: 900px) {
   .hero__metrics {
     gap: 1.5rem;
+    flex-wrap: nowrap;
   }
 }
 
@@ -1795,6 +1796,7 @@ a {
 
   .hero__metrics {
     justify-content: center;
+    flex-wrap: nowrap;
   }
 
   .hero__tagline {
@@ -1817,7 +1819,7 @@ a {
   }
 
   .hero__metrics div {
-    width: 100%;
+    width: auto;
     text-align: center;
   }
 
