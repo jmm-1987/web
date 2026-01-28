@@ -271,5 +271,25 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Carrusel automático de imágenes hero
+  const heroSlides = document.querySelectorAll('.hero__slide');
+  if (heroSlides.length > 0) {
+    let currentSlide = 0;
+    
+    const showNextSlide = () => {
+      // Ocultar slide actual
+      heroSlides[currentSlide].classList.remove('hero__slide--active');
+      
+      // Avanzar al siguiente slide
+      currentSlide = (currentSlide + 1) % heroSlides.length;
+      
+      // Mostrar nuevo slide
+      heroSlides[currentSlide].classList.add('hero__slide--active');
+    };
+    
+    // Cambiar de imagen cada 5 segundos
+    setInterval(showNextSlide, 5000);
+  }
 });
 
