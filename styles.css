@@ -256,7 +256,7 @@ a {
   place-items: center;
   text-align: left;
   padding-top: 4.6rem;
-  color: #ffffff;
+  color: #000000;
 }
 
 .hero__media {
@@ -381,7 +381,7 @@ a {
   font-size: clamp(2.2rem, 3.5vw, 3rem);
   max-width: 720px;
   font-weight: 700;
-  color: #ffffff;
+  color: #000000;
   line-height: 1.2;
 }
 
@@ -403,7 +403,7 @@ a {
 
 .hero p {
   max-width: 560px;
-  color: rgba(255, 255, 255, 0.78);
+  color: #000000;
   font-size: 1.05rem;
 }
 
@@ -417,7 +417,7 @@ a {
 .hero__metrics {
   display: flex;
   gap: 2rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-start;
 }
 
@@ -429,7 +429,7 @@ a {
 
 .hero__metrics dd {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: #000000;
   margin-top: 0.25rem;
 }
 
@@ -461,25 +461,25 @@ a {
 }
 
 .btn--ghost {
-  border-color: rgba(255, 255, 255, 0.32);
-  color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.18);
+  border-color: rgba(0, 0, 0, 0.32);
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.18);
 }
 
 .btn--ghost:hover {
   background-color: rgba(179, 0, 15, 0.35);
-  border-color: rgba(255, 255, 255, 0.65);
+  border-color: rgba(0, 0, 0, 0.65);
 }
 
 .hero .btn--outline {
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.6);
+  color: #000000;
+  border-color: rgba(0, 0, 0, 0.6);
   background-color: transparent;
 }
 
 .hero .btn--outline:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  background: rgba(0, 0, 0, 0.12);
+  color: #000000;
 }
 
 .btn:hover {
@@ -519,7 +519,7 @@ a {
 
 .section__eyebrow {
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   letter-spacing: 0.4em;
   color: #b3000f;
 }
@@ -1662,11 +1662,11 @@ a.service-card:hover {
 }
 
 .hero h1[data-animate] {
-  color: #ffffff;
+  color: #000000;
 }
 
 .hero h1[data-animate].is-visible {
-  color: #ffffff;
+  color: #000000;
 }
 
 @keyframes zoom {
@@ -1742,6 +1742,7 @@ a.service-card:hover {
 @media (max-width: 900px) {
   .hero__metrics {
     gap: 1.5rem;
+    flex-wrap: nowrap;
   }
 
   .company__grid {
@@ -1836,6 +1837,7 @@ a.service-card:hover {
 
   .hero__metrics {
     justify-content: center;
+    flex-wrap: nowrap;
   }
 
   .hero__tagline {
@@ -1858,7 +1860,7 @@ a.service-card:hover {
   }
 
   .hero__metrics div {
-    width: 100%;
+    width: auto;
     text-align: center;
   }
 
