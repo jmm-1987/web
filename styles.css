@@ -390,6 +390,9 @@ a {
   opacity: 0;
   transform: translateX(-100%);
   transition: opacity 1s ease-out, transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
 }
 
 .hero__title-part + .hero__title-part {
@@ -1157,15 +1160,25 @@ a.service-card:hover {
   place-items: center;
 }
 
+.slide a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .slide img {
   height: 60px;
   object-fit: contain;
   filter: grayscale(0%);
   opacity: 0.9;
   transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+  display: block;
 }
 
-.slide:hover img {
+.slide:hover img,
+.slide a:hover img {
   filter: saturate(1.2);
   opacity: 1;
   transform: scale(1.08) translateY(-4px);
