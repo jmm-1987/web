@@ -2014,6 +2014,28 @@ a.service-card:hover {
   font-size: 0.95rem;
 }
 
+.service-page__image-small--transparent {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.service-page__image-small--transparent:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.service-page__image-small--transparent img {
+  object-fit: contain;
+  background: transparent;
+  transition: transform 0.3s ease;
+}
+
+.service-page__image-small--transparent:hover img {
+  transform: scale(1.05);
+}
+
 .service-page__text {
   display: grid;
   gap: 2.5rem;
