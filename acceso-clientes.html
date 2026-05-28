@@ -28,14 +28,56 @@
       </div>
     </header>
 
-    <main class="access-main access-main--fullscreen">
-      <iframe
-        class="access-frame"
-        title="Acceso clientes Alditraex"
-        src="https://alditraexweb.nereid.es/"
-        loading="eager"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
+    <main class="access-main">
+      <section class="access-hero">
+        <div class="container">
+          <span class="section__eyebrow">Área privada</span>
+          <h1>Selecciona tu acceso de cliente</h1>
+          <p>
+            Elige el portal que corresponde a tu cuenta para continuar con tu inicio de sesión.
+          </p>
+
+          <div class="access-grid">
+            <article class="access-card">
+              <h2>ERP clientes</h2>
+              <p>
+                Gestiona recogidas, documentación de expediciones, etiquetado y seguimiento resumido.
+              </p>
+              <a
+                class="btn btn--primary"
+                href="https://alditraexweb.nereid.es/"
+                target="_blank"
+                rel="noopener"
+              >
+                Entrar a ERP clientes
+              </a>
+            </article>
+
+            <article class="access-card">
+              <h2>Seguimientos</h2>
+              <p>
+                Seguimiento detallado y envio de link por email/whatsapp.
+              </p>
+              <button class="btn btn--outline" type="button" id="seguimientos-btn">
+                Entrar a Seguimientos
+              </button>
+              <p class="access-card__notice" id="seguimientos-notice" hidden>
+                En desarrollo.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
     </main>
+    <script>
+      const seguimientosBtn = document.getElementById('seguimientos-btn');
+      const seguimientosNotice = document.getElementById('seguimientos-notice');
+
+      if (seguimientosBtn && seguimientosNotice) {
+        seguimientosBtn.addEventListener('click', () => {
+          seguimientosNotice.hidden = false;
+        });
+      }
+    </script>
   </body>
 </html>

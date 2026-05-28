@@ -1596,6 +1596,11 @@ a.service-card:hover {
   color: #505050;
 }
 
+.access-card__notice {
+  color: #b3000f;
+  font-weight: 600;
+}
+
 .access-embed {
   position: relative;
   border-radius: 14px;
