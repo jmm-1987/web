@@ -1531,6 +1531,104 @@ a.service-card:hover {
   padding-top: 6rem;
 }
 
+.access-main {
+  padding-top: 6rem;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.access-main--fullscreen {
+  padding-top: 0;
+  min-height: calc(100vh - 88px);
+  height: calc(100vh - 88px);
+  background: #ffffff;
+}
+
+.access-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.access-hero {
+  padding: clamp(3rem, 8vw, 6rem) 0;
+}
+
+.access-hero .container {
+  display: grid;
+  gap: 1rem;
+}
+
+.access-hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #111111;
+}
+
+.access-hero p {
+  max-width: 760px;
+  color: #505050;
+}
+
+.access-grid {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.access-card {
+  background: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 18px;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  box-shadow: 0 20px 40px rgba(17, 17, 17, 0.08);
+  display: grid;
+  gap: 0.9rem;
+}
+
+.access-card h2 {
+  font-size: 1.3rem;
+  color: #111111;
+}
+
+.access-card p {
+  color: #505050;
+}
+
+.access-embed {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  background: #f7f7f7;
+  min-height: 360px;
+}
+
+.access-embed iframe {
+  width: 100%;
+  height: 360px;
+  border: 0;
+  display: block;
+  background: #ffffff;
+}
+
+.access-embed__fallback {
+  position: absolute;
+  inset: auto 0 0 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.88rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.access-embed__fallback.is-visible {
+  opacity: 1;
+}
+
 .legal-hero {
   padding: clamp(3rem, 6vw, 4.5rem) 0;
   background: radial-gradient(circle at top right, rgba(255, 26, 41, 0.15), transparent 55%);
