@@ -1532,7 +1532,7 @@ a.service-card:hover {
 }
 
 .access-main {
-  padding-top: 6rem;
+  padding-top: 4.5rem;
   min-height: 100vh;
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
 }
@@ -1552,7 +1552,7 @@ a.service-card:hover {
 }
 
 .access-hero {
-  padding: clamp(3rem, 8vw, 6rem) 0;
+  padding: clamp(1rem, 3vw, 2rem) 0;
 }
 
 .access-hero .container {
