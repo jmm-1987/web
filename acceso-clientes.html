@@ -55,26 +55,18 @@
               <p>
                 Seguimiento detallado y envio de link por email/whatsapp.
               </p>
-              <button class="btn btn--outline" type="button" id="seguimientos-btn">
+              <a
+                class="btn btn--outline"
+                href="https://seguimiento.alditraex.es/"
+                target="_blank"
+                rel="noopener"
+              >
                 Entrar a Seguimientos
-              </button>
-              <p class="access-card__notice" id="seguimientos-notice" hidden>
-                En desarrollo.
-              </p>
+              </a>
             </article>
           </div>
         </div>
       </section>
     </main>
-    <script>
-      const seguimientosBtn = document.getElementById('seguimientos-btn');
-      const seguimientosNotice = document.getElementById('seguimientos-notice');
-
-      if (seguimientosBtn && seguimientosNotice) {
-        seguimientosBtn.addEventListener('click', () => {
-          seguimientosNotice.hidden = false;
-        });
-      }
-    </script>
   </body>
 </html>
