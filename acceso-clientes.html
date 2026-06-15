@@ -13,7 +13,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="legal-body">
+  <body class="legal-body access-page">
     <header class="site-header site-header--solid">
       <div class="container">
         <a href="index.html" class="logo">
@@ -29,6 +29,32 @@
     </header>
 
     <main class="access-main">
+      <div class="access-main__bg" aria-hidden="true">
+        <svg class="access-main__lines" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="accessLineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="rgba(255, 26, 41, 0)" />
+              <stop offset="45%" stop-color="rgba(255, 26, 41, 0.35)" />
+              <stop offset="100%" stop-color="rgba(179, 0, 15, 0)" />
+            </linearGradient>
+          </defs>
+          <path
+            class="access-line access-line--1"
+            d="M-60 210 C220 90 420 120 640 200 S1080 160 1320 120"
+          />
+          <path
+            class="access-line access-line--2"
+            d="M40 520 C300 420 520 460 760 520 S1180 480 1500 430"
+          />
+          <path
+            class="access-line access-line--3"
+            d="M120 760 C380 660 620 700 900 760 S1260 720 1500 680"
+          />
+        </svg>
+        <span class="access-main__orb access-main__orb--one"></span>
+        <span class="access-main__orb access-main__orb--two"></span>
+        <span class="access-main__orb access-main__orb--three"></span>
+      </div>
       <section class="access-hero">
         <div class="container">
           <span class="section__eyebrow">Área privada</span>
@@ -36,9 +62,9 @@
 
           <div class="access-grid">
             <article class="access-card">
-              <h2>ERP clientes</h2>
+              <h2>Web clientes</h2>
               <p>
-                Gestiona recogidas, documentación de expediciones, etiquetado y seguimiento resumido.
+                Grabación de expediciones, documentación, etiquetado y seguimiento resumido.
               </p>
               <a
                 class="btn btn--primary"

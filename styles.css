@@ -1532,9 +1532,132 @@ a.service-card:hover {
 }
 
 .access-main {
+  position: relative;
+  overflow: hidden;
   padding-top: 4.5rem;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  background: linear-gradient(145deg, #f6f7f9 0%, #ffffff 45%, #faf8f8 100%);
+  background-size: 200% 200%;
+  animation: accessGradientShift 22s ease infinite;
+}
+
+.access-main__bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.access-main__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.55;
+}
+
+.access-line {
+  fill: none;
+  stroke: url(#accessLineGradient);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-dasharray: 10 22;
+  animation: accessLineFlow 16s linear infinite;
+}
+
+.access-line--2 {
+  stroke-width: 1.2;
+  stroke-dasharray: 8 26;
+  opacity: 0.75;
+  animation-duration: 22s;
+  animation-direction: reverse;
+}
+
+.access-line--3 {
+  stroke-width: 1;
+  stroke-dasharray: 6 28;
+  opacity: 0.55;
+  animation-duration: 19s;
+  animation-delay: -6s;
+}
+
+@keyframes accessLineFlow {
+  to {
+    stroke-dashoffset: -180;
+  }
+}
+
+.access-main__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  opacity: 0.45;
+  will-change: transform;
+}
+
+.access-main__orb--one {
+  width: min(55vw, 480px);
+  height: min(55vw, 480px);
+  top: -8%;
+  right: -6%;
+  background: radial-gradient(circle, rgba(255, 26, 41, 0.22) 0%, transparent 68%);
+  animation: accessOrbFloatA 20s ease-in-out infinite alternate;
+}
+
+.access-main__orb--two {
+  width: min(45vw, 380px);
+  height: min(45vw, 380px);
+  bottom: 8%;
+  left: -8%;
+  background: radial-gradient(circle, rgba(179, 0, 15, 0.14) 0%, transparent 70%);
+  animation: accessOrbFloatB 26s ease-in-out infinite alternate;
+}
+
+.access-main__orb--three {
+  width: min(35vw, 280px);
+  height: min(35vw, 280px);
+  top: 42%;
+  left: 38%;
+  background: radial-gradient(circle, rgba(255, 26, 41, 0.08) 0%, transparent 72%);
+  animation: accessOrbFloatC 18s ease-in-out infinite alternate;
+}
+
+@keyframes accessGradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes accessOrbFloatA {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-24px, 18px) scale(1.06);
+  }
+}
+
+@keyframes accessOrbFloatB {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(20px, -16px) scale(1.08);
+  }
+}
+
+@keyframes accessOrbFloatC {
+  from {
+    transform: translate(0, 0) scale(0.95);
+  }
+  to {
+    transform: translate(-12px, 14px) scale(1.04);
+  }
 }
 
 .access-main--fullscreen {
@@ -1552,6 +1675,8 @@ a.service-card:hover {
 }
 
 .access-hero {
+  position: relative;
+  z-index: 1;
   padding: clamp(1rem, 3vw, 2rem) 0;
 }
 
@@ -1578,13 +1703,28 @@ a.service-card:hover {
 }
 
 .access-card {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(17, 17, 17, 0.08);
   border-radius: 18px;
   padding: clamp(1.5rem, 3vw, 2rem);
   box-shadow: 0 20px 40px rgba(17, 17, 17, 0.08);
   display: grid;
   gap: 0.9rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.access-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 48px rgba(17, 17, 17, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .access-main,
+  .access-main__orb,
+  .access-line {
+    animation: none;
+  }
 }
 
 .access-card h2 {
